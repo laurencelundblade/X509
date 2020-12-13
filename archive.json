@@ -1,0 +1,865 @@
+{
+  "magic": "E!vIA5L86J2I",
+  "timestamp": "2020-11-01T18:38:53.537042+00:00",
+  "repo": "cose-wg/X509",
+  "labels": [
+    {
+      "name": "bug",
+      "description": null,
+      "color": "ee0701"
+    },
+    {
+      "name": "duplicate",
+      "description": null,
+      "color": "cccccc"
+    },
+    {
+      "name": "enhancement",
+      "description": null,
+      "color": "84b6eb"
+    },
+    {
+      "name": "help wanted",
+      "description": null,
+      "color": "128A0C"
+    },
+    {
+      "name": "invalid",
+      "description": null,
+      "color": "e6e6e6"
+    },
+    {
+      "name": "question",
+      "description": null,
+      "color": "cc317c"
+    },
+    {
+      "name": "wontfix",
+      "description": null,
+      "color": "ffffff"
+    }
+  ],
+  "issues": [
+    {
+      "number": 3,
+      "id": "MDU6SXNzdWUzNDc2MzMwOTE=",
+      "title": " COSE_X509 CDDL",
+      "url": "https://github.com/cose-wg/X509/issues/3",
+      "state": "CLOSED",
+      "author": "emanjon",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "The CDDL states\r\n\r\nCOSE_X509 = bstr / [ *certs: bstr ]\r\n\r\nIf I understand draft-ietf-cbor-cddl correctly, '*' means zero or more. Shouldn't it be\r\n\r\nCOSE_X509 = bstr / [ 2* certs: bstr ]\r\n\r\nwhere 2* means two or more\r\n",
+      "createdAt": "2018-08-04T17:01:59Z",
+      "updatedAt": "2019-11-21T03:29:34Z",
+      "closedAt": "2019-11-21T03:29:34Z",
+      "comments": [
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "There is a difference between what I was thinking and what is in the text.  I was actually thinking that you might want a bag of zero certificates - hence the *, but yes from the text is should be 2*",
+          "createdAt": "2018-08-04T17:15:43Z",
+          "updatedAt": "2018-08-04T17:15:43Z"
+        },
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "fixed",
+          "createdAt": "2019-11-21T03:29:34Z",
+          "updatedAt": "2019-11-21T03:29:34Z"
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "id": "MDU6SXNzdWU0ODA1MzE0ODQ=",
+      "title": "ref uri format",
+      "url": "https://github.com/cose-wg/X509/issues/11",
+      "state": "OPEN",
+      "author": "fpalombini",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "It would be good to have a pointer to uri format definition (can be in terminology, but I'd prefer it after table 1 as that is where it appears first).",
+      "createdAt": "2019-08-14T07:48:21Z",
+      "updatedAt": "2019-08-14T07:48:21Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 12,
+      "id": "MDU6SXNzdWU0ODA1MzI4NDI=",
+      "title": "cert bag unordered",
+      "url": "https://github.com/cose-wg/X509/issues/12",
+      "state": "CLOSED",
+      "author": "fpalombini",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "the following text:\r\n\r\n      *  If multiple certificates are conveyed, a CBOR array of bstrs is\r\n         used.  Each certificate being in it's own slot.\r\n\r\nabout the \"its own slot\", confuses me. This seems to imply order. (I think this might be a copy-paste error).\r\n\r\nAlso minor \"it's\" -> \"its\" (here and in x5chain description)",
+      "createdAt": "2019-08-14T07:51:56Z",
+      "updatedAt": "2019-11-21T03:08:22Z",
+      "closedAt": "2019-11-21T03:08:22Z",
+      "comments": [
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "fixed",
+          "createdAt": "2019-11-21T03:08:22Z",
+          "updatedAt": "2019-11-21T03:08:22Z"
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "id": "MDU6SXNzdWU0ODA1MzQyMDU=",
+      "title": "Clarification needed",
+      "url": "https://github.com/cose-wg/X509/issues/13",
+      "state": "OPEN",
+      "author": "fpalombini",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "About x5t:\r\n\r\n> The first element is an algorithm identifier which is\r\n>       an integer or a string containing the hash algorithm identifier.\r\n\r\nShould this be taken from the COSE Algorithm registry? if not necessarily, what value can it take?",
+      "createdAt": "2019-08-14T07:55:11Z",
+      "updatedAt": "2020-03-19T09:12:18Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "Seems like it does say the COSE Algorithms registry.  That would mean int or tstr is fine.\r\n\r\nSeems like this could be a normative reference to the definition of alg in table 2 in RFC 8152.",
+          "createdAt": "2020-03-18T19:06:06Z",
+          "updatedAt": "2020-03-18T19:06:06Z"
+        },
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Francesca's comment was fixed in the last version.  I don't want to reference CDDL to someplace else because there is no official CDDL structure in RFC 8152 and we don't have imports at this point.",
+          "createdAt": "2020-03-18T22:30:18Z",
+          "updatedAt": "2020-03-18T22:30:18Z"
+        },
+        {
+          "author": "fpalombini",
+          "authorAssociation": "NONE",
+          "body": "Right, thanks for adding the text about COSE Algorithm registry. No need for CDDL. You could add a reference to make it more clear what registry you are talking about (I would suggest not to table 2 of RFC8152 as Laurence mentions, but to the IANA registry itself https://www.iana.org/assignments/cose/cose.xhtml#algorithms since table 2 is only a subset of all registered algorithms, or to section 16.4 where the registry is created).",
+          "createdAt": "2020-03-19T09:12:17Z",
+          "updatedAt": "2020-03-19T09:12:17Z"
+        }
+      ]
+    },
+    {
+      "number": 14,
+      "id": "MDU6SXNzdWU0ODA1MzQ1OTU=",
+      "title": "CDDL",
+      "url": "https://github.com/cose-wg/X509/issues/14",
+      "state": "CLOSED",
+      "author": "fpalombini",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "update CDDL ref to RFC8610 :)",
+      "createdAt": "2019-08-14T07:56:10Z",
+      "updatedAt": "2019-11-21T03:06:36Z",
+      "closedAt": "2019-11-21T03:06:36Z",
+      "comments": [
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "done",
+          "createdAt": "2019-11-21T03:06:36Z",
+          "updatedAt": "2019-11-21T03:06:36Z"
+        }
+      ]
+    },
+    {
+      "number": 19,
+      "id": "MDU6SXNzdWU1MjY0MzIzNTY=",
+      "title": "Terminology -- header parameter?",
+      "url": "https://github.com/cose-wg/X509/issues/19",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Aren't x5chain, x5t and such header parameters?\r\n",
+      "createdAt": "2019-11-21T08:14:22Z",
+      "updatedAt": "2020-10-20T17:09:07Z",
+      "closedAt": "2020-10-20T17:09:07Z",
+      "comments": [
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Yes - I need to do the other documents as well.",
+          "createdAt": "2019-11-21T08:41:49Z",
+          "updatedAt": "2019-11-21T08:41:49Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "This was fixed.",
+          "createdAt": "2020-10-20T17:09:07Z",
+          "updatedAt": "2020-10-20T17:09:07Z"
+        }
+      ]
+    },
+    {
+      "number": 21,
+      "id": "MDU6SXNzdWU1ODM5NDQwNDE=",
+      "title": "Require DER encoding for x5t",
+      "url": "https://github.com/cose-wg/X509/issues/21",
+      "state": "OPEN",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Since the data is being hashed, it has to be in a canonical form, so it should specify DER encoding.",
+      "createdAt": "2020-03-18T19:08:24Z",
+      "updatedAt": "2020-03-18T22:57:13Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "No that is not correct.  The form to be hashed is what ever is signed and there.  Forcing a re-encode to DER is known to generate errors.  This is standard behavior in the X.509 world.",
+          "createdAt": "2020-03-18T22:19:29Z",
+          "updatedAt": "2020-03-18T22:19:29Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "Is x5t the hash of the leaf cert in x5bag or x5chain?  If so, that would explain why most of my comments are not making sense.\r\n\r\nI interpreted it as another way to identify a cert similar to x5bag. I was going to say that it needs to be an array like x5bag.\r\n\r\nPretty sure x5t needs some clarification.\r\n",
+          "createdAt": "2020-03-18T22:57:13Z",
+          "updatedAt": "2020-03-18T22:57:13Z"
+        }
+      ]
+    },
+    {
+      "number": 22,
+      "id": "MDU6SXNzdWU1ODM5NDU4Mjk=",
+      "title": "PEM, DER, BER or other format?",
+      "url": "https://github.com/cose-wg/X509/issues/22",
+      "state": "OPEN",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "My first though would be that all certs should be DER format. No PEM or BER or such.",
+      "createdAt": "2020-03-18T19:12:02Z",
+      "updatedAt": "2020-03-22T22:03:36Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "This conflicts with my proposal in #24; maybe 24 is better.",
+          "createdAt": "2020-03-18T19:23:13Z",
+          "updatedAt": "2020-03-18T19:23:13Z"
+        },
+        {
+          "author": "mcr",
+          "authorAssociation": "NONE",
+          "body": "Laurence Lundblade <notifications@github.com> wrote:\n    > My first though would be that all certs should be DER format. No PEM or BER or such.\n\nAll certificates are in DER format.\nDER is a subset of BEM, and is never used for signed things.\nPEM is base64 encoded DER, so it's not a different format, just a different transport.\n",
+          "createdAt": "2020-03-18T20:44:16Z",
+          "updatedAt": "2020-03-18T20:44:16Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "Sniffing bytes can be used reliably to tell PEM-wrapped DER from raw DER, but I do not think this standard should rely on it. If we choose to rely on it, it needs to be called out in the text. Also see #24",
+          "createdAt": "2020-03-18T21:14:04Z",
+          "updatedAt": "2020-03-18T22:34:39Z"
+        },
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "There is no need to sniff this, the content-type returned in the HTTP request will identify what the type of the content being returned is.  This is not something that is in the COSE message but is what is returned by HTTP.  These are all common formats that are returned in HTTP.",
+          "createdAt": "2020-03-18T22:23:55Z",
+          "updatedAt": "2020-03-18T22:23:55Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "x5u is fetched by HTTP, but x5bag and x5chain are not. They contain actual bytes of certs in bstrs. The spec doesn't say if they are PEM or DER, so without any specification in the draft or any tagging, you'd have to sniff.",
+          "createdAt": "2020-03-18T22:33:43Z",
+          "updatedAt": "2020-03-18T22:33:43Z"
+        },
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I just wet back and realized that I have completely removed PEM from the document.  The reference for an X.509 certificate is RFC 5280 and there is nothing but binary certificates in that document.  I don't think there is any issue with what is in the bag or chain.",
+          "createdAt": "2020-03-22T22:03:35Z",
+          "updatedAt": "2020-03-22T22:03:35Z"
+        }
+      ]
+    },
+    {
+      "number": 23,
+      "id": "MDU6SXNzdWU1ODM5NDc2OTY=",
+      "title": "recommend that the COSE kid be a Subject Key Identifier",
+      "url": "https://github.com/cose-wg/X509/issues/23",
+      "state": "OPEN",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "Particularly with x5bag, the signature verifier needs to figure out which cert is the leaf to use to verify the COSE signature.  CMS and such did with the Subject Key ID and it seems that should be a described option here.\r\n",
+      "createdAt": "2020-03-18T19:15:53Z",
+      "updatedAt": "2020-03-22T21:49:56Z",
+      "closedAt": null,
+      "comments": [
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I would not be using a kid in this case, I would be more likely to use a thumbprint for the identification purposes.  Given that we have consistently said that the structure of kid is not known, making it known in this case seems to be a bad idea to me.",
+          "createdAt": "2020-03-18T22:31:40Z",
+          "updatedAt": "2020-03-18T22:31:40Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "Suppose I'm using COSE for code signing and a root has been embedded in the entity that will verify and run the signed code.  The cert chain is a leaf, two intermediates and a root. The two intermediates and leaf are put in an x5bag. How does the verifier know which of the three in the x5bag is the leaf?\r\n\r\nIt seems that it should be Subject Key ID as that is best practice for this identification AFAIK. Thus, there should be some COSE header that contains the Subject Key ID. If that is not the kid, then another header should be formally defined. If it is a thumbprint then how the thumbprint works should be described.\r\n\r\nSaid another way, I think this draft should give enough info (along with 5280) to accomplish chain formation with an x5bag for the code signing example or other similar uses.",
+          "createdAt": "2020-03-18T22:50:16Z",
+          "updatedAt": "2020-03-18T22:50:16Z"
+        },
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Starting at the top, this is a case where a chain makes more sense because it resolves that problem entirely.  Using a bag only makes sense if you have certificates that are outside of the chain.\r\n\r\nSecond, as I said I would put in a bag and a thumbprint.  The thumbprint would be used to identify the leaf certificate to use. ",
+          "createdAt": "2020-03-19T00:01:33Z",
+          "updatedAt": "2020-03-19T00:01:33Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "Understand that a thumbprint can work, but the word \"thumbprint\" only occurs in the document once in Table 2 which applies only to ECDH.  Seems like there is some important text missing. \r\n\r\nIf x5t is the thumbprint, then it should say something like \"x5t identifies the leaf cert in the chain, such as the one with the public key to verify the signature on a COSE_Sign1.\"",
+          "createdAt": "2020-03-19T16:59:35Z",
+          "updatedAt": "2020-03-19T16:59:35Z"
+        },
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "That is implied by the bullet items immediately prior to table 1.",
+          "createdAt": "2020-03-22T21:49:56Z",
+          "updatedAt": "2020-03-22T21:49:56Z"
+        }
+      ]
+    },
+    {
+      "number": 24,
+      "id": "MDU6SXNzdWU1ODM5NTExMTk=",
+      "title": "Register a CBOR tag for X.509 cert?",
+      "url": "https://github.com/cose-wg/X509/issues/24",
+      "state": "CLOSED",
+      "author": "laurencelundblade",
+      "authorAssociation": "NONE",
+      "assignees": [],
+      "labels": [],
+      "body": "We have registered tags for lots of common data structures. X.509 certs are a common data structure. This RFC would be a convenient place to do it.\r\n\r\nIt could be polymorphic based on the type of the tag content\r\n- tstr implies PEM encoding\r\n- bstr implies DER encoding\r\n- array means hash of the cert\r\n- URI means reference\r\n\r\nThis could allow the removal of x5t and x5u entirely. They would just be folded in with x5bag and x5chain. Any individual cert in the bag or the chain could be any of the types.\r\n\r\nThis is partly in conflict with my issue #22 \r\n",
+      "createdAt": "2020-03-18T19:22:36Z",
+      "updatedAt": "2020-10-20T17:07:19Z",
+      "closedAt": "2020-10-20T17:07:18Z",
+      "comments": [
+        {
+          "author": "jimsch",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I am not sure why you think this would be needed.  The only reasonable answer here is to say that it is a DER encoded certificate and be done with it.  There is no need to carry a PEM cert in the message itself.  Having the thumbprint or URI would mean that things will get really sticky fast because the same certificate could be referenced many times by different methods.  That is just confusing.",
+          "createdAt": "2020-03-18T22:28:50Z",
+          "updatedAt": "2020-03-18T22:28:50Z"
+        },
+        {
+          "author": "laurencelundblade",
+          "authorAssociation": "NONE",
+          "body": "It was a thought. Removing the comment.",
+          "createdAt": "2020-10-20T17:07:18Z",
+          "updatedAt": "2020-10-20T17:07:18Z"
+        }
+      ]
+    }
+  ],
+  "pulls": [
+    {
+      "number": 1,
+      "id": "MDExOlB1bGxSZXF1ZXN0OTQ5NDk2NTg=",
+      "title": "Publish the -00 version",
+      "url": "https://github.com/cose-wg/X509/pull/1",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2016-11-23T06:12:49Z",
+      "updatedAt": "2016-11-23T06:15:47Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "008f6f5144b82eae002d215a7c2895d614936638",
+      "headRepository": "jimsch/X509",
+      "headRefName": "master",
+      "headRefOid": "5061cc32cc768336b95ab66565accc0184e9355d",
+      "closedAt": "2016-11-23T06:15:47Z",
+      "mergedAt": "2016-11-23T06:15:47Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "f2040e0c9b0171278fddc736c93d0b8b323215d7"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 2,
+      "id": "MDExOlB1bGxSZXF1ZXN0MTIyMDc4MDQ4",
+      "title": "Edits to fill out more sections",
+      "url": "https://github.com/cose-wg/X509/pull/2",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2017-05-23T19:36:41Z",
+      "updatedAt": "2017-05-23T19:39:45Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "f2040e0c9b0171278fddc736c93d0b8b323215d7",
+      "headRepository": "jimsch/X509",
+      "headRefName": "master",
+      "headRefOid": "a928ca39e48b648256924f689e5fdeb6c1c4ec7d",
+      "closedAt": "2017-05-23T19:39:45Z",
+      "mergedAt": "2017-05-23T19:39:45Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "2ca2b38f784010c1d6a1e8e15c6e0f727b051796"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 4,
+      "id": "MDExOlB1bGxSZXF1ZXN0MjQwMDU3MDM5",
+      "title": "Updates to document",
+      "url": "https://github.com/cose-wg/X509/pull/4",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Add text to deal w/ static-static DH",
+      "createdAt": "2018-12-20T05:35:53Z",
+      "updatedAt": "2018-12-22T18:01:06Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "4f55317d422ade75de057487fe55925a87a33854",
+      "headRepository": "jimsch/X509",
+      "headRefName": "dec-18-01",
+      "headRefOid": "6d16b16bc8a83e5e628ec10ee2033ad6d139bad9",
+      "closedAt": "2018-12-22T18:00:55Z",
+      "mergedAt": "2018-12-22T18:00:55Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "d8021eb27f86cefc85a06e66b5d2040eb833c824"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 5,
+      "id": "MDExOlB1bGxSZXF1ZXN0MjQwNTQ5NTcw",
+      "title": "Update for circle",
+      "url": "https://github.com/cose-wg/X509/pull/5",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2018-12-21T18:43:10Z",
+      "updatedAt": "2018-12-21T18:46:19Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "2ca2b38f784010c1d6a1e8e15c6e0f727b051796",
+      "headRepository": "cose-wg/X509",
+      "headRefName": "cli2",
+      "headRefOid": "b6ef8b8e469e35dc6f145c2e742a5eee931e6d9b",
+      "closedAt": "2018-12-21T18:46:15Z",
+      "mergedAt": "2018-12-21T18:46:15Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "4f55317d422ade75de057487fe55925a87a33854"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 6,
+      "id": "MDExOlB1bGxSZXF1ZXN0MjQwOTM2MDM3",
+      "title": "Updates for the -01 version",
+      "url": "https://github.com/cose-wg/X509/pull/6",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2018-12-26T08:09:29Z",
+      "updatedAt": "2018-12-26T08:41:23Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "d8021eb27f86cefc85a06e66b5d2040eb833c824",
+      "headRepository": "jimsch/X509",
+      "headRefName": "dec-24",
+      "headRefOid": "f808032b949c9f05f85ee5df9b8ba0265ac6bf50",
+      "closedAt": "2018-12-26T08:41:18Z",
+      "mergedAt": "2018-12-26T08:41:18Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "706d61f496df99027d9e18186d3c0f3a65bff4d9"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 7,
+      "id": "MDExOlB1bGxSZXF1ZXN0MjQ4NjIzOTkx",
+      "title": "Rename draft",
+      "url": "https://github.com/cose-wg/X509/pull/7",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Draft has been adopted by the WG.",
+      "createdAt": "2019-01-29T19:10:15Z",
+      "updatedAt": "2019-01-29T19:36:44Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "706d61f496df99027d9e18186d3c0f3a65bff4d9",
+      "headRepository": "jimsch/X509",
+      "headRefName": "rename-draft",
+      "headRefOid": "da8df60df85327324864c4a3780bef486b3bb5dd",
+      "closedAt": "2019-01-29T19:36:38Z",
+      "mergedAt": "2019-01-29T19:36:38Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "2e5027e4d478a055d3de52fb374b833c4abcf37a"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "MDExOlB1bGxSZXF1ZXN0MjQ4NjQ0NTM0",
+      "title": "Sync up",
+      "url": "https://github.com/cose-wg/X509/pull/8",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Clean history",
+      "createdAt": "2019-01-29T20:20:14Z",
+      "updatedAt": "2019-01-29T20:24:51Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "2e5027e4d478a055d3de52fb374b833c4abcf37a",
+      "headRepository": "jimsch/X509",
+      "headRefName": "master",
+      "headRefOid": "81911e7906cccbc80b32bc312e37f298e5bfbd38",
+      "closedAt": "2019-01-29T20:24:51Z",
+      "mergedAt": "2019-01-29T20:24:51Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "e8531dc18b31c3bbf8fa9d8057c65b894946cdb1"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 9,
+      "id": "MDExOlB1bGxSZXF1ZXN0MjYwMDg5NjEw",
+      "title": "Updates for latest version",
+      "url": "https://github.com/cose-wg/X509/pull/9",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Separate hash draft from x509 draft\r\nUpdates to x509 draft\r\nadd more hash functions",
+      "createdAt": "2019-03-11T18:41:30Z",
+      "updatedAt": "2019-03-11T18:45:08Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "e8531dc18b31c3bbf8fa9d8057c65b894946cdb1",
+      "headRepository": "jimsch/X509",
+      "headRefName": "master",
+      "headRefOid": "106fddd30ba0f03a7d0e7e13bfe8a702fe1a53b1",
+      "closedAt": "2019-03-11T18:45:08Z",
+      "mergedAt": "2019-03-11T18:45:08Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "3aac6bd64d3fb428a22ec42b301af7ead37cb9ae"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 10,
+      "id": "MDExOlB1bGxSZXF1ZXN0Mjg2ODUxMDU3",
+      "title": "Update the -01 version of hash draft",
+      "url": "https://github.com/cose-wg/X509/pull/10",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2019-06-10T21:53:23Z",
+      "updatedAt": "2019-08-19T01:12:20Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "7b6e007d2cb1b0d7ade83d377c4a9146226aa083",
+      "headRepository": "jimsch/X509",
+      "headRefName": "master",
+      "headRefOid": "fd095b86c75465483beef9ad2bbcd7d1767f17f9",
+      "closedAt": "2019-08-19T01:12:20Z",
+      "mergedAt": "2019-08-19T01:12:20Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "18f83a58a096099c2d8af18c4c96040e78a0377d"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 15,
+      "id": "MDExOlB1bGxSZXF1ZXN0MzA4NDExNTQz",
+      "title": "Move from the v2 to the v3 vocabulary",
+      "url": "https://github.com/cose-wg/X509/pull/15",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Change versions of xml2rfc vocabulary\r\nAddress some comments from Sean.",
+      "createdAt": "2019-08-19T01:05:16Z",
+      "updatedAt": "2019-08-19T01:08:26Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "3aac6bd64d3fb428a22ec42b301af7ead37cb9ae",
+      "headRepository": "jimsch/X509",
+      "headRefName": "v2v3",
+      "headRefOid": "27edf56c458fb5445c68c8e0b58565409b9c92de",
+      "closedAt": "2019-08-19T01:08:22Z",
+      "mergedAt": "2019-08-19T01:08:22Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "7b6e007d2cb1b0d7ade83d377c4a9146226aa083"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 17,
+      "id": "MDExOlB1bGxSZXF1ZXN0MzE2NjEzOTA0",
+      "title": "sync up",
+      "url": "https://github.com/cose-wg/X509/pull/17",
+      "state": "CLOSED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2019-09-11T20:06:31Z",
+      "updatedAt": "2020-07-29T15:11:59Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "40216bb6fa55e4434cd0e1865de3662e0013326c",
+      "headRepository": "jimsch/X509",
+      "headRefName": "master",
+      "headRefOid": "392d6982cf800d71cc8beeaf77def303015a43b8",
+      "closedAt": "2020-07-29T15:11:58Z",
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 18,
+      "id": "MDExOlB1bGxSZXF1ZXN0MzM2NDkyNDg2",
+      "title": "Deal with WGLC Comments",
+      "url": "https://github.com/cose-wg/X509/pull/18",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Deal with WGLC comments from various people.",
+      "createdAt": "2019-11-04T21:38:33Z",
+      "updatedAt": "2019-11-04T22:03:08Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "18f83a58a096099c2d8af18c4c96040e78a0377d",
+      "headRepository": "jimsch/X509",
+      "headRefName": "wglc-1",
+      "headRefOid": "2a66ab0a369ba2f672a9d74880d79ef0fb98a910",
+      "closedAt": "2019-11-04T22:03:08Z",
+      "mergedAt": "2019-11-04T22:03:08Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "1ad63a0ebd771cd667b82f571e2ddb2805c321e5"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 20,
+      "id": "MDExOlB1bGxSZXF1ZXN0Mzg1MDg0NTk4",
+      "title": "Wglc 1",
+      "url": "https://github.com/cose-wg/X509/pull/20",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-03-07T01:28:35Z",
+      "updatedAt": "2020-03-09T22:16:53Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "1ad63a0ebd771cd667b82f571e2ddb2805c321e5",
+      "headRepository": "jimsch/X509",
+      "headRefName": "wglc-1",
+      "headRefOid": "da07723c21786e8ac5c2c1a977ecd868e094d000",
+      "closedAt": "2020-03-07T01:31:08Z",
+      "mergedAt": "2020-03-07T01:31:08Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "32c2bf2b2411250f6d9232b43ae0813ac9d88a44"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 25,
+      "id": "MDExOlB1bGxSZXF1ZXN0NDIxMDk4MTc5",
+      "title": "AD review and last call comments",
+      "url": "https://github.com/cose-wg/X509/pull/25",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "* Murray\r\n* Tom Petch",
+      "createdAt": "2020-05-21T01:24:31Z",
+      "updatedAt": "2020-05-29T21:34:40Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "32c2bf2b2411250f6d9232b43ae0813ac9d88a44",
+      "headRepository": "jimsch/X509",
+      "headRefName": "AD-Review",
+      "headRefOid": "02d5ff8264c7936f1d99879225b717ac2bbff825",
+      "closedAt": "2020-05-29T21:34:33Z",
+      "mergedAt": "2020-05-29T21:34:33Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "40216bb6fa55e4434cd0e1865de3662e0013326c"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 26,
+      "id": "MDExOlB1bGxSZXF1ZXN0NDMxNTIyNTM5",
+      "title": "Iesg",
+      "url": "https://github.com/cose-wg/X509/pull/26",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-06-09T04:06:06Z",
+      "updatedAt": "2020-09-14T19:53:41Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "40216bb6fa55e4434cd0e1865de3662e0013326c",
+      "headRepository": "jimsch/X509",
+      "headRefName": "IESG",
+      "headRefOid": "00f1280aa01ffb8bcf81ebe7457cae64e6e4767f",
+      "closedAt": "2020-09-14T19:53:32Z",
+      "mergedAt": "2020-09-14T19:53:32Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "e870a84868e9335a207e46b4dbeb2d8c8d485a1a"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 27,
+      "id": "MDExOlB1bGxSZXF1ZXN0NDg4ODU2MDg2",
+      "title": "Address all of the AD comments",
+      "url": "https://github.com/cose-wg/X509/pull/27",
+      "state": "MERGED",
+      "author": "jimsch",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2020-09-17T18:35:50Z",
+      "updatedAt": "2020-09-17T18:36:43Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "e870a84868e9335a207e46b4dbeb2d8c8d485a1a",
+      "headRepository": "jimsch/X509",
+      "headRefName": "barry-review",
+      "headRefOid": "7a7120f2660be23dfd26b0769f4a819b91c53cfe",
+      "closedAt": "2020-09-17T18:36:39Z",
+      "mergedAt": "2020-09-17T18:36:38Z",
+      "mergedBy": "jimsch",
+      "mergeCommit": {
+        "oid": "90dc7f817f80a6ac81341807cd82db6eb43ff57b"
+      },
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 28,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTA2MzAyNDYx",
+      "title": "A few nits left",
+      "url": "https://github.com/cose-wg/X509/pull/28",
+      "state": "MERGED",
+      "author": "cabo",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "... and found during the IoTdir review.",
+      "createdAt": "2020-10-19T21:55:33Z",
+      "updatedAt": "2020-10-20T05:15:15Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "aa4caad6374396fb706f3e756bea6f222458d42c",
+      "headRepository": "cabo/X509",
+      "headRefName": "master",
+      "headRefOid": "2a5e7355c72a3877fd085b95407f90c19ccc5da8",
+      "closedAt": "2020-10-20T05:15:08Z",
+      "mergedAt": "2020-10-20T05:15:08Z",
+      "mergedBy": "ivajloip",
+      "mergeCommit": {
+        "oid": "863c9714537aacb851d26e62e1774209471a335b"
+      },
+      "comments": [
+        {
+          "author": "ivajloip",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Thanks, Carsten!",
+          "createdAt": "2020-10-20T05:15:15Z",
+          "updatedAt": "2020-10-20T05:15:15Z"
+        }
+      ],
+      "reviews": []
+    }
+  ]
+}
