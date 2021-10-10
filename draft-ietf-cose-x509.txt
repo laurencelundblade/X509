@@ -4,8 +4,8 @@
 
 Network Working Group                                          J. Schaad
 Internet-Draft                                            August Cellars
-Intended status: Standards Track                        13 December 2020
-Expires: 16 June 2021
+Intended status: Standards Track                         10 October 2021
+Expires: 13 April 2022
 
 
     CBOR Object Signing and Encryption (COSE): Header parameters for
@@ -47,20 +47,20 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 16 June 2021.
+   This Internet-Draft will expire on 13 April 2022.
 
 
 
 
 
-Schaad                    Expires 16 June 2021                  [Page 1]
+Schaad                    Expires 13 April 2022                 [Page 1]
 
-Internet-Draft                 COSE X.509                  December 2020
+Internet-Draft                 COSE X.509                   October 2021
 
 
 Copyright Notice
 
-   Copyright (c) 2020 IETF Trust and the persons identified as the
+   Copyright (c) 2021 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Schaad                    Expires 16 June 2021                  [Page 2]
+Schaad                    Expires 13 April 2022                 [Page 2]
 
-Internet-Draft                 COSE X.509                  December 2020
+Internet-Draft                 COSE X.509                   October 2021
 
 
    as the basis for a secure messaging application.  This scenario
@@ -165,9 +165,9 @@ Internet-Draft                 COSE X.509                  December 2020
 
 
 
-Schaad                    Expires 16 June 2021                  [Page 3]
+Schaad                    Expires 13 April 2022                 [Page 3]
 
-Internet-Draft                 COSE X.509                  December 2020
+Internet-Draft                 COSE X.509                   October 2021
 
 
    The header parameters defined in this document are:
@@ -175,7 +175,7 @@ Internet-Draft                 COSE X.509                  December 2020
    x5bag:  This header parameter contains a bag of X.509 certificates.
       The set of certificates in this header parameter is unordered and
       may contain self-signed certificates.  Note that there could be
-      duplicating certificates.  The certificate bag can contain
+      duplicate certificates.  The certificate bag can contain
       certificates which are completely extraneous to the message.  (An
       example of this would be where a signed message is being used to
       transport a certificate containing a key agreement key.)  As the
@@ -221,9 +221,9 @@ Internet-Draft                 COSE X.509                  December 2020
 
 
 
-Schaad                    Expires 16 June 2021                  [Page 4]
+Schaad                    Expires 13 April 2022                 [Page 4]
 
-Internet-Draft                 COSE X.509                  December 2020
+Internet-Draft                 COSE X.509                   October 2021
 
 
       The trust mechanism MUST process any certificates in this
@@ -277,9 +277,9 @@ Internet-Draft                 COSE X.509                  December 2020
 
 
 
-Schaad                    Expires 16 June 2021                  [Page 5]
+Schaad                    Expires 13 April 2022                 [Page 5]
 
-Internet-Draft                 COSE X.509                  December 2020
+Internet-Draft                 COSE X.509                   October 2021
 
 
       The worry is that while SHA-256 may be mandatory, if a sender
@@ -333,24 +333,24 @@ Internet-Draft                 COSE X.509                  December 2020
 
 
 
-Schaad                    Expires 16 June 2021                  [Page 6]
+Schaad                    Expires 13 April 2022                 [Page 6]
 
-Internet-Draft                 COSE X.509                  December 2020
+Internet-Draft                 COSE X.509                   October 2021
 
 
          +=========+=======+===============+=====================+
          | Name    | Label | Value Type    | Description         |
          +=========+=======+===============+=====================+
-         | x5bag   | TBD4  | COSE_X509     | An unordered bag of |
+         | x5bag   | 32    | COSE_X509     | An unordered bag of |
          |         |       |               | X.509 certificates  |
          +---------+-------+---------------+---------------------+
-         | x5chain | TBD3  | COSE_X509     | An ordered chain of |
+         | x5chain | 33    | COSE_X509     | An ordered chain of |
          |         |       |               | X.509 certificates  |
          +---------+-------+---------------+---------------------+
-         | x5t     | TBD1  | COSE_CertHash | Hash of an X.509    |
+         | x5t     | 34    | COSE_CertHash | Hash of an X.509    |
          |         |       |               | certificate         |
          +---------+-------+---------------+---------------------+
-         | x5u     | TBD2  | uri           | URI pointing to an  |
+         | x5u     | 35    | uri           | URI pointing to an  |
          |         |       |               | X.509 certificate   |
          +---------+-------+---------------+---------------------+
 
@@ -389,9 +389,9 @@ Internet-Draft                 COSE X.509                  December 2020
 
 
 
-Schaad                    Expires 16 June 2021                  [Page 7]
+Schaad                    Expires 13 April 2022                 [Page 7]
 
-Internet-Draft                 COSE X.509                  December 2020
+Internet-Draft                 COSE X.509                   October 2021
 
 
       key exchange certificate.  The structure and processing are the
@@ -445,9 +445,9 @@ Internet-Draft                 COSE X.509                  December 2020
 
 
 
-Schaad                    Expires 16 June 2021                  [Page 8]
+Schaad                    Expires 13 April 2022                 [Page 8]
 
-Internet-Draft                 COSE X.509                  December 2020
+Internet-Draft                 COSE X.509                   October 2021
 
 
 5.  Security Considerations
@@ -501,9 +501,9 @@ Internet-Draft                 COSE X.509                  December 2020
 
 
 
-Schaad                    Expires 16 June 2021                  [Page 9]
+Schaad                    Expires 13 April 2022                 [Page 9]
 
-Internet-Draft                 COSE X.509                  December 2020
+Internet-Draft                 COSE X.509                   October 2021
 
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
@@ -535,8 +535,9 @@ Internet-Draft                 COSE X.509                  December 2020
               Rescorla, E., Tschofenig, H., and N. Modadugu, "The
               Datagram Transport Layer Security (DTLS) Protocol Version
               1.3", Work in Progress, Internet-Draft, draft-ietf-tls-
-              dtls13-39, 2 November 2020,
-              <https://tools.ietf.org/html/draft-ietf-tls-dtls13-39>.
+              dtls13-43, 30 April 2021,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-tls-
+              dtls13-43>.
 
    [RFC8551]  Schaad, J., Ramsdell, B., and S. Turner, "Secure/
               Multipurpose Internet Mail Extensions (S/MIME) Version 4.0
@@ -548,19 +549,25 @@ Internet-Draft                 COSE X.509                  December 2020
               RFC 2585, DOI 10.17487/RFC2585, May 1999,
               <https://www.rfc-editor.org/info/rfc2585>.
 
-   [I-D.ietf-lake-edhoc]
-              Selander, G., Mattsson, J., and F. Palombini, "Ephemeral
-              Diffie-Hellman Over COSE (EDHOC)", Work in Progress,
-              Internet-Draft, draft-ietf-lake-edhoc-02, 2 November 2020,
-              <https://tools.ietf.org/html/draft-ietf-lake-edhoc-02>.
 
 
 
 
-Schaad                    Expires 16 June 2021                 [Page 10]
+
+
+
+
+Schaad                    Expires 13 April 2022                [Page 10]
 
-Internet-Draft                 COSE X.509                  December 2020
+Internet-Draft                 COSE X.509                   October 2021
 
+
+   [I-D.ietf-lake-edhoc]
+              Selander, G., Mattsson, J. P., and F. Palombini,
+              "Ephemeral Diffie-Hellman Over COSE (EDHOC)", Work in
+              Progress, Internet-Draft, draft-ietf-lake-edhoc-11, 24
+              September 2021, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-lake-edhoc-11>.
 
    [RFC8392]  Jones, M., Wahlstroem, E., Erdtman, S., and H. Tschofenig,
               "CBOR Web Token (CWT)", RFC 8392, DOI 10.17487/RFC8392,
@@ -581,8 +588,8 @@ Internet-Draft                 COSE X.509                  December 2020
               Richardson, M., "Device Enrollment in IETF protocols -- A
               Roadmap", Work in Progress, Internet-Draft, draft-
               richardson-enrollment-roadmap-03, 7 October 2020,
-              <https://tools.ietf.org/html/draft-richardson-enrollment-
-              roadmap-03>.
+              <https://datatracker.ietf.org/doc/html/draft-richardson-
+              enrollment-roadmap-03>.
 
 Author's Address
 
@@ -606,11 +613,4 @@ Author's Address
 
 
 
-
-
-
-
-
-
-
-Schaad                    Expires 16 June 2021                 [Page 11]
+Schaad                    Expires 13 April 2022                [Page 11]

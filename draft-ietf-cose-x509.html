@@ -14,25 +14,25 @@
         This document extends the way that keys can be identified and transported by providing attributes that refer to or contain X.509 certificates.
        
     " name="description">
-<meta content="xml2rfc 3.5.0" name="generator">
+<meta content="xml2rfc 3.9.1" name="generator">
 <meta content="draft-ietf-cose-x509-08" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.5.0
-    Python 3.8.5
+  xml2rfc 3.9.1
+    Python 3.9.5
     appdirs 1.4.4
-    ConfigArgParse 1.2.3
-    google-i18n-address 2.4.0
+    ConfigArgParse 1.3
+    google-i18n-address 2.5.0
     html5lib 1.1
-    intervaltree 3.0.2
-    Jinja2 2.11.2
+    intervaltree 3.1.0
+    Jinja2 2.11.3
     kitchen 1.2.6
-    lxml 4.5.0
-    pycountry 19.8.18
-    pyflakes 2.1.1
-    PyYAML 5.3.1
-    requests 2.22.0
-    setuptools 45.2.0
-    six 1.14.0
+    lxml 4.6.3
+    pycountry 20.7.3
+    pyflakes 2.3.0
+    PyYAML 5.4.1
+    requests 2.25.1
+    setuptools 52.0.0
+    six 1.15.0
 -->
 <link href="draft-ietf-cose-x509.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
@@ -822,11 +822,11 @@ address div.right {
 <thead><tr>
 <td class="left">Internet-Draft</td>
 <td class="center">COSE X.509</td>
-<td class="right">December 2020</td>
+<td class="right">October 2021</td>
 </tr></thead>
 <tfoot><tr>
 <td class="left">Schaad</td>
-<td class="center">Expires 16 June 2021</td>
+<td class="center">Expires 13 April 2022</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -837,12 +837,12 @@ address div.right {
 <dd class="workgroup">Network Working Group</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2020-12-13" class="published">13 December 2020</time>
+<time datetime="2021-10-10" class="published">10 October 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2021-06-16">16 June 2021</time></dd>
+<dd class="expires"><time datetime="2022-04-13">13 April 2022</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
@@ -891,7 +891,7 @@ address div.right {
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 16 June 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 13 April 2022.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -900,7 +900,7 @@ address div.right {
 <a href="#name-copyright-notice" class="section-name selfRef">Copyright Notice</a>
         </h2>
 <p id="section-boilerplate.2-1">
-            Copyright (c) 2020 IETF Trust and the persons identified as the
+            Copyright (c) 2021 IETF Trust and the persons identified as the
             document authors. All rights reserved.<a href="#section-boilerplate.2-1" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.2-2">
             This document is subject to BCP 78 and the IETF Trust's Legal
@@ -919,48 +919,48 @@ address div.right {
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="ulEmpty compact toc">
-<li class="ulEmpty compact toc" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
-<ul class="compact ulEmpty toc">
-<li class="compact ulEmpty toc" id="section-toc.1-1.1.2.1">
-                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-requirements-terminology" class="xref">Requirements Terminology</a><a href="#section-toc.1-1.1.2.1.1" class="pilcrow">¶</a></p>
+<nav class="toc"><ul class="toc compact ulBare ulEmpty">
+<li class="toc compact ulBare ulEmpty" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
+<ul class="compact ulEmpty toc ulBare">
+<li class="compact ulEmpty toc ulBare" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-requirements-terminology" class="xref">Requirements Terminology</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-x509-cose-header-parameters" class="xref">X.509 COSE Header Parameters</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
+          <li class="toc compact ulBare ulEmpty" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-x509-cose-header-parameters" class="xref">X.509 COSE Header Parameters</a></p>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-x509-certificates-and-stati" class="xref">X.509 certificates and static-static ECDH</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
+          <li class="toc compact ulBare ulEmpty" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-x509-certificates-and-stati" class="xref">X.509 certificates and static-static ECDH</a></p>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
-<ul class="compact ulEmpty toc">
-<li class="compact ulEmpty toc" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-cose-header-parameter-regis" class="xref">COSE Header Parameter Registry</a><a href="#section-toc.1-1.4.2.1.1" class="pilcrow">¶</a></p>
+          <li class="toc compact ulBare ulEmpty" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
+<ul class="compact ulEmpty toc ulBare">
+<li class="compact ulEmpty toc ulBare" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-cose-header-parameter-regis" class="xref">COSE Header Parameter Registry</a></p>
 </li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-cose-header-algorithm-param" class="xref">COSE Header Algorithm Parameter Registry</a><a href="#section-toc.1-1.4.2.2.1" class="pilcrow">¶</a></p>
-</li>
-            </ul>
-</li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-references" class="xref">References</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
-<ul class="compact ulEmpty toc">
-<li class="compact ulEmpty toc" id="section-toc.1-1.6.2.1">
-                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a><a href="#section-toc.1-1.6.2.1.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="compact ulEmpty toc" id="section-toc.1-1.6.2.2">
-                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a><a href="#section-toc.1-1.6.2.2.1" class="pilcrow">¶</a></p>
+              <li class="compact ulEmpty toc ulBare" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-cose-header-algorithm-param" class="xref">COSE Header Algorithm Parameter Registry</a></p>
 </li>
             </ul>
 </li>
-          <li class="ulEmpty compact toc" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-appendix.a" class="xref"></a><a href="#name-authors-address" class="xref">Author's Address</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
+          <li class="toc compact ulBare ulEmpty" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
+</li>
+          <li class="toc compact ulBare ulEmpty" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-references" class="xref">References</a></p>
+<ul class="compact ulEmpty toc ulBare">
+<li class="compact ulEmpty toc ulBare" id="section-toc.1-1.6.2.1">
+                <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+</li>
+              <li class="compact ulEmpty toc ulBare" id="section-toc.1-1.6.2.2">
+                <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="toc compact ulBare ulEmpty" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-address" class="xref">Author's Address</a></p>
 </li>
         </ul>
 </nav>
@@ -1019,7 +1019,7 @@ obtained from any of these methods still need to validate it.
         <dd style="margin-left: 1.5em" id="section-2-5.2">
           <p id="section-2-5.2.1">
      This header parameter contains a bag of X.509 certificates.
-     The set of certificates in this header parameter is unordered and may contain self-signed certificates. Note that there could be duplicating certificates.
+     The set of certificates in this header parameter is unordered and may contain self-signed certificates. Note that there could be duplicate certificates.
             The certificate bag can contain certificates which are completely extraneous to the message.
      (An example of this would be where a signed message is being used to transport a certificate containing a key agreement key.)
      As the certificates are unordered, the party evaluating the signature will need to be capable of building the certificate path as necessary.
@@ -1134,25 +1134,25 @@ obtained from any of these methods still need to validate it.
         <tbody>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">x5bag</td>
-            <td class="text-left" rowspan="1" colspan="1">TBD4</td>
+            <td class="text-left" rowspan="1" colspan="1">32</td>
             <td class="text-left" rowspan="1" colspan="1">COSE_X509</td>
             <td class="text-left" rowspan="1" colspan="1">An unordered bag of X.509 certificates</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">x5chain</td>
-            <td class="text-left" rowspan="1" colspan="1">TBD3</td>
+            <td class="text-left" rowspan="1" colspan="1">33</td>
             <td class="text-left" rowspan="1" colspan="1">COSE_X509</td>
             <td class="text-left" rowspan="1" colspan="1">An ordered chain of X.509 certificates</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">x5t</td>
-            <td class="text-left" rowspan="1" colspan="1">TBD1</td>
+            <td class="text-left" rowspan="1" colspan="1">34</td>
             <td class="text-left" rowspan="1" colspan="1">COSE_CertHash</td>
             <td class="text-left" rowspan="1" colspan="1">Hash of an X.509 certificate</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">x5u</td>
-            <td class="text-left" rowspan="1" colspan="1">TBD2</td>
+            <td class="text-left" rowspan="1" colspan="1">35</td>
             <td class="text-left" rowspan="1" colspan="1">uri</td>
             <td class="text-left" rowspan="1" colspan="1">URI pointing to an X.509 certificate</td>
           </tr>
@@ -1310,7 +1310,7 @@ COSE_CertHash = [ hashAlg: (int / tstr), hashValue: bstr ]
 <dd class="break"></dd>
 <dt id="RFC5280">[RFC5280]</dt>
         <dd>
-<span class="refAuthor">Cooper, D.</span><span class="refAuthor">, Santesson, S.</span><span class="refAuthor">, Farrell, S.</span><span class="refAuthor">, Boeyen, S.</span><span class="refAuthor">, Housley, R.</span><span class="refAuthor">, and W. Polk</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile"</span>, <span class="seriesInfo">RFC 5280</span>, <span class="seriesInfo">DOI 10.17487/RFC5280</span>, <time datetime="2008-05" class="refDate">May 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5280">https://www.rfc-editor.org/info/rfc5280</a>&gt;</span>. </dd>
+<span class="refAuthor">Cooper, D.</span>, <span class="refAuthor">Santesson, S.</span>, <span class="refAuthor">Farrell, S.</span>, <span class="refAuthor">Boeyen, S.</span>, <span class="refAuthor">Housley, R.</span>, and <span class="refAuthor">W. Polk</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile"</span>, <span class="seriesInfo">RFC 5280</span>, <span class="seriesInfo">DOI 10.17487/RFC5280</span>, <time datetime="2008-05" class="refDate">May 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5280">https://www.rfc-editor.org/info/rfc5280</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8152">[RFC8152]</dt>
         <dd>
@@ -1332,39 +1332,39 @@ COSE_CertHash = [ hashAlg: (int / tstr), hashValue: bstr ]
 <dd class="break"></dd>
 <dt id="I-D.ietf-tls-dtls13">[I-D.ietf-tls-dtls13]</dt>
         <dd>
-<span class="refAuthor">Rescorla, E.</span><span class="refAuthor">, Tschofenig, H.</span><span class="refAuthor">, and N. Modadugu</span>, <span class="refTitle">"The Datagram Transport Layer Security (DTLS) Protocol Version 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-dtls13-39</span>, <time datetime="2020-11-02" class="refDate">2 November 2020</time>, <span>&lt;<a href="https://tools.ietf.org/html/draft-ietf-tls-dtls13-39">https://tools.ietf.org/html/draft-ietf-tls-dtls13-39</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Tschofenig, H.</span>, and <span class="refAuthor">N. Modadugu</span>, <span class="refTitle">"The Datagram Transport Layer Security (DTLS) Protocol Version 1.3"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-dtls13-43</span>, <time datetime="2021-04-30" class="refDate">30 April 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-dtls13-43">https://datatracker.ietf.org/doc/html/draft-ietf-tls-dtls13-43</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8551">[RFC8551]</dt>
         <dd>
-<span class="refAuthor">Schaad, J.</span><span class="refAuthor">, Ramsdell, B.</span><span class="refAuthor">, and S. Turner</span>, <span class="refTitle">"Secure/Multipurpose Internet Mail Extensions (S/MIME) Version 4.0 Message Specification"</span>, <span class="seriesInfo">RFC 8551</span>, <span class="seriesInfo">DOI 10.17487/RFC8551</span>, <time datetime="2019-04" class="refDate">April 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8551">https://www.rfc-editor.org/info/rfc8551</a>&gt;</span>. </dd>
+<span class="refAuthor">Schaad, J.</span>, <span class="refAuthor">Ramsdell, B.</span>, and <span class="refAuthor">S. Turner</span>, <span class="refTitle">"Secure/Multipurpose Internet Mail Extensions (S/MIME) Version 4.0 Message Specification"</span>, <span class="seriesInfo">RFC 8551</span>, <span class="seriesInfo">DOI 10.17487/RFC8551</span>, <time datetime="2019-04" class="refDate">April 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8551">https://www.rfc-editor.org/info/rfc8551</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2585">[RFC2585]</dt>
         <dd>
-<span class="refAuthor">Housley, R.</span><span class="refAuthor"> and P. Hoffman</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure Operational Protocols: FTP and HTTP"</span>, <span class="seriesInfo">RFC 2585</span>, <span class="seriesInfo">DOI 10.17487/RFC2585</span>, <time datetime="1999-05" class="refDate">May 1999</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2585">https://www.rfc-editor.org/info/rfc2585</a>&gt;</span>. </dd>
+<span class="refAuthor">Housley, R.</span> and <span class="refAuthor">P. Hoffman</span>, <span class="refTitle">"Internet X.509 Public Key Infrastructure Operational Protocols: FTP and HTTP"</span>, <span class="seriesInfo">RFC 2585</span>, <span class="seriesInfo">DOI 10.17487/RFC2585</span>, <time datetime="1999-05" class="refDate">May 1999</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2585">https://www.rfc-editor.org/info/rfc2585</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-lake-edhoc">[I-D.ietf-lake-edhoc]</dt>
         <dd>
-<span class="refAuthor">Selander, G.</span><span class="refAuthor">, Mattsson, J.</span><span class="refAuthor">, and F. Palombini</span>, <span class="refTitle">"Ephemeral Diffie-Hellman Over COSE (EDHOC)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lake-edhoc-02</span>, <time datetime="2020-11-02" class="refDate">2 November 2020</time>, <span>&lt;<a href="https://tools.ietf.org/html/draft-ietf-lake-edhoc-02">https://tools.ietf.org/html/draft-ietf-lake-edhoc-02</a>&gt;</span>. </dd>
+<span class="refAuthor">Selander, G.</span>, <span class="refAuthor">Mattsson, J. P.</span>, and <span class="refAuthor">F. Palombini</span>, <span class="refTitle">"Ephemeral Diffie-Hellman Over COSE (EDHOC)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-lake-edhoc-11</span>, <time datetime="2021-09-24" class="refDate">24 September 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-lake-edhoc-11">https://datatracker.ietf.org/doc/html/draft-ietf-lake-edhoc-11</a>&gt;</span>. </dd>
 <dd class="break"></dd><dt id="RFC8392">[RFC8392]</dt>
         <dd>
-<span class="refAuthor">Jones, M.</span><span class="refAuthor">, Wahlstroem, E.</span><span class="refAuthor">, Erdtman, S.</span><span class="refAuthor">, and H. Tschofenig</span>, <span class="refTitle">"CBOR Web Token (CWT)"</span>, <span class="seriesInfo">RFC 8392</span>, <span class="seriesInfo">DOI 10.17487/RFC8392</span>, <time datetime="2018-05" class="refDate">May 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8392">https://www.rfc-editor.org/info/rfc8392</a>&gt;</span>. </dd>
+<span class="refAuthor">Jones, M.</span>, <span class="refAuthor">Wahlstroem, E.</span>, <span class="refAuthor">Erdtman, S.</span>, and <span class="refAuthor">H. Tschofenig</span>, <span class="refTitle">"CBOR Web Token (CWT)"</span>, <span class="seriesInfo">RFC 8392</span>, <span class="seriesInfo">DOI 10.17487/RFC8392</span>, <time datetime="2018-05" class="refDate">May 2018</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8392">https://www.rfc-editor.org/info/rfc8392</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8610">[RFC8610]</dt>
         <dd>
-<span class="refAuthor">Birkholz, H.</span><span class="refAuthor">, Vigano, C.</span><span class="refAuthor">, and C. Bormann</span>, <span class="refTitle">"Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures"</span>, <span class="seriesInfo">RFC 8610</span>, <span class="seriesInfo">DOI 10.17487/RFC8610</span>, <time datetime="2019-06" class="refDate">June 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8610">https://www.rfc-editor.org/info/rfc8610</a>&gt;</span>. </dd>
+<span class="refAuthor">Birkholz, H.</span>, <span class="refAuthor">Vigano, C.</span>, and <span class="refAuthor">C. Bormann</span>, <span class="refTitle">"Concise Data Definition Language (CDDL): A Notational Convention to Express Concise Binary Object Representation (CBOR) and JSON Data Structures"</span>, <span class="seriesInfo">RFC 8610</span>, <span class="seriesInfo">DOI 10.17487/RFC8610</span>, <time datetime="2019-06" class="refDate">June 2019</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8610">https://www.rfc-editor.org/info/rfc8610</a>&gt;</span>. </dd>
 <dd class="break"></dd><dt id="RFC3986">[RFC3986]</dt>
         <dd>
-<span class="refAuthor">Berners-Lee, T.</span><span class="refAuthor">, Fielding, R.</span><span class="refAuthor">, and L. Masinter</span>, <span class="refTitle">"Uniform Resource Identifier (URI): Generic Syntax"</span>, <span class="seriesInfo">STD 66</span>, <span class="seriesInfo">RFC 3986</span>, <span class="seriesInfo">DOI 10.17487/RFC3986</span>, <time datetime="2005-01" class="refDate">January 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc3986">https://www.rfc-editor.org/info/rfc3986</a>&gt;</span>. </dd>
+<span class="refAuthor">Berners-Lee, T.</span>, <span class="refAuthor">Fielding, R.</span>, and <span class="refAuthor">L. Masinter</span>, <span class="refTitle">"Uniform Resource Identifier (URI): Generic Syntax"</span>, <span class="seriesInfo">STD 66</span>, <span class="seriesInfo">RFC 3986</span>, <span class="seriesInfo">DOI 10.17487/RFC3986</span>, <time datetime="2005-01" class="refDate">January 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc3986">https://www.rfc-editor.org/info/rfc3986</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.richardson-enrollment-roadmap">[I-D.richardson-enrollment-roadmap]</dt>
       <dd>
-<span class="refAuthor">Richardson, M.</span>, <span class="refTitle">"Device Enrollment in IETF protocols -- A Roadmap"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-richardson-enrollment-roadmap-03</span>, <time datetime="2020-10-07" class="refDate">7 October 2020</time>, <span>&lt;<a href="https://tools.ietf.org/html/draft-richardson-enrollment-roadmap-03">https://tools.ietf.org/html/draft-richardson-enrollment-roadmap-03</a>&gt;</span>. </dd>
+<span class="refAuthor">Richardson, M.</span>, <span class="refTitle">"Device Enrollment in IETF protocols -- A Roadmap"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-richardson-enrollment-roadmap-03</span>, <time datetime="2020-10-07" class="refDate">7 October 2020</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-richardson-enrollment-roadmap-03">https://datatracker.ietf.org/doc/html/draft-richardson-enrollment-roadmap-03</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
 </section>
 <div id="authors-addresses">
-<section id="section-appendix.a">
+<section id="appendix-A">
       <h2 id="name-authors-address">
 <a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>
