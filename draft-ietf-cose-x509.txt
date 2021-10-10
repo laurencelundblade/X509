@@ -99,13 +99,13 @@ Table of Contents
    transport and refer to X.509 certificates in a consistent manner.
 
    In some of these cases, a constrained device is being deployed in the
-   context of an existing X.509 PKI: for example, in the 6TiSCH
-   environment, [I-D.richardson-enrollment-roadmap] describes a device
-   enrollment solution that relies on the presence of a factory-
-   installed certificate on the device.  The [I-D.ietf-lake-edhoc] draft
-   was also written with the idea that long term certificates could be
-   used to provide for authentication of devices, and uses them to
-   establish session keys.  Another possible scenario is the use of COSE
+   context of an existing X.509 PKI: for example,
+   [I-D.ietf-anima-constrained-voucher] describes a device enrollment
+   solution that relies on the presence of a factory-installed
+   certificate on the device.  The [I-D.ietf-lake-edhoc] draft was also
+   written with the idea that long term certificates could be used to
+   provide for authentication of devices, and uses them to establish
+   session keys.  Another possible scenario is the use of COSE as the
 
 
 
@@ -114,10 +114,10 @@ Schaad                    Expires 13 April 2022                 [Page 2]
 Internet-Draft                 COSE X.509                   October 2021
 
 
-   as the basis for a secure messaging application.  This scenario
-   assumes the presence of long term keys and a central authentication
-   authority.  Basing such an application on public key certificates
-   allows it to make use of well established key management disciplines.
+   basis for a secure messaging application.  This scenario assumes the
+   presence of long term keys and a central authentication authority.
+   Basing such an application on public key certificates allows it to
+   make use of well established key management disciplines.
 
 1.1.  Requirements Terminology
 
@@ -584,12 +584,13 @@ Internet-Draft                 COSE X.509                   October 2021
               RFC 3986, DOI 10.17487/RFC3986, January 2005,
               <https://www.rfc-editor.org/info/rfc3986>.
 
-   [I-D.richardson-enrollment-roadmap]
-              Richardson, M., "Device Enrollment in IETF protocols -- A
-              Roadmap", Work in Progress, Internet-Draft, draft-
-              richardson-enrollment-roadmap-03, 7 October 2020,
-              <https://datatracker.ietf.org/doc/html/draft-richardson-
-              enrollment-roadmap-03>.
+   [I-D.ietf-anima-constrained-voucher]
+              Richardson, M., Stok, P. V. D., Kampanakis, P., and E.
+              Dijk, "Constrained Voucher Artifacts for Bootstrapping
+              Protocols", Work in Progress, Internet-Draft, draft-ietf-
+              anima-constrained-voucher-13, 25 July 2021,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-anima-
+              constrained-voucher-13>.
 
 Author's Address
 
@@ -597,7 +598,6 @@ Author's Address
    August Cellars
 
    Email: ietf@augustcellars.com
-
 
 
 
