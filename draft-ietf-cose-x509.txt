@@ -246,13 +246,13 @@ Internet-Draft                 COSE X.509                   October 2021
 
    x5t:  This header parameter provides the ability to identify an X.509
       certificate by a hash value (a thumbprint).  The 'x5t' header
-      parameter can be represented as an array of two elements.  The
-      first element is an algorithm identifier which is an integer or a
-      string containing the hash algorithm identifier corresponding to
-      either the Value (integer) or Name (string) column of the
-      algorithm registered in the "COSE Algorithms" registry.  The
-      second element is a binary string containing the hash value
-      computed over the DER encoded certificate.
+      parameter is represented as an array of two elements.  The first
+      element is an algorithm identifier which is an integer or a string
+      containing the hash algorithm identifier corresponding to either
+      the Value (integer) or Name (string) column of the algorithm
+      registered in the "COSE Algorithms" registry.  The second element
+      is a binary string containing the hash value computed over the DER
+      encoded certificate.
 
       As this header parameter does not provide any trust, the header
       parameter can be in either a protected or unprotected header
@@ -480,8 +480,9 @@ Internet-Draft                 COSE X.509                   October 2021
    either to loss of security or excessive consumption of resources (for
    example using a 200K RSA key).
 
-   When processing x5u header parameter the security considerations of
-   [RFC3986] and specifically those defined in Section 7.1 also apply.
+   When processing the x5u header parameter the security considerations
+   of [RFC3986] and specifically those defined in Section 7.1 also
+   apply.
 
    Regardless of the source, certification path validation is an
    important part of establishing trust in a certificate.  Section 6 of
@@ -497,7 +498,6 @@ Internet-Draft                 COSE X.509                   October 2021
 6.  References
 
 6.1.  Normative References
-
 
 
 

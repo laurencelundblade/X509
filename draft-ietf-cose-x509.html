@@ -919,47 +919,47 @@ address div.right {
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="toc compact ulBare ulEmpty">
-<li class="toc compact ulBare ulEmpty" id="section-toc.1-1.1">
+<nav class="toc"><ul class="toc ulEmpty compact ulBare">
+<li class="toc ulEmpty compact ulBare" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
-<ul class="compact ulEmpty toc ulBare">
-<li class="compact ulEmpty toc ulBare" id="section-toc.1-1.1.2.1">
+<ul class="ulBare ulEmpty toc compact">
+<li class="ulBare ulEmpty toc compact" id="section-toc.1-1.1.2.1">
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-requirements-terminology" class="xref">Requirements Terminology</a></p>
 </li>
             </ul>
 </li>
-          <li class="toc compact ulBare ulEmpty" id="section-toc.1-1.2">
+          <li class="toc ulEmpty compact ulBare" id="section-toc.1-1.2">
             <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-x509-cose-header-parameters" class="xref">X.509 COSE Header Parameters</a></p>
 </li>
-          <li class="toc compact ulBare ulEmpty" id="section-toc.1-1.3">
+          <li class="toc ulEmpty compact ulBare" id="section-toc.1-1.3">
             <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-x509-certificates-and-stati" class="xref">X.509 certificates and static-static ECDH</a></p>
 </li>
-          <li class="toc compact ulBare ulEmpty" id="section-toc.1-1.4">
+          <li class="toc ulEmpty compact ulBare" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
-<ul class="compact ulEmpty toc ulBare">
-<li class="compact ulEmpty toc ulBare" id="section-toc.1-1.4.2.1">
+<ul class="ulBare ulEmpty toc compact">
+<li class="ulBare ulEmpty toc compact" id="section-toc.1-1.4.2.1">
                 <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-cose-header-parameter-regis" class="xref">COSE Header Parameter Registry</a></p>
 </li>
-              <li class="compact ulEmpty toc ulBare" id="section-toc.1-1.4.2.2">
+              <li class="ulBare ulEmpty toc compact" id="section-toc.1-1.4.2.2">
                 <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-cose-header-algorithm-param" class="xref">COSE Header Algorithm Parameter Registry</a></p>
 </li>
             </ul>
 </li>
-          <li class="toc compact ulBare ulEmpty" id="section-toc.1-1.5">
+          <li class="toc ulEmpty compact ulBare" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
 </li>
-          <li class="toc compact ulBare ulEmpty" id="section-toc.1-1.6">
+          <li class="toc ulEmpty compact ulBare" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-references" class="xref">References</a></p>
-<ul class="compact ulEmpty toc ulBare">
-<li class="compact ulEmpty toc ulBare" id="section-toc.1-1.6.2.1">
+<ul class="ulBare ulEmpty toc compact">
+<li class="ulBare ulEmpty toc compact" id="section-toc.1-1.6.2.1">
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
 </li>
-              <li class="compact ulEmpty toc ulBare" id="section-toc.1-1.6.2.2">
+              <li class="ulBare ulEmpty toc compact" id="section-toc.1-1.6.2.2">
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
 </li>
             </ul>
 </li>
-          <li class="toc compact ulBare ulEmpty" id="section-toc.1-1.7">
+          <li class="toc ulEmpty compact ulBare" id="section-toc.1-1.7">
             <p id="section-toc.1-1.7.1"><a href="#appendix-A" class="xref"></a><a href="#name-authors-address" class="xref">Author's Address</a></p>
 </li>
         </ul>
@@ -1068,7 +1068,7 @@ obtained from any of these methods still need to validate it.
         <dd style="margin-left: 1.5em" id="section-2-5.6">
           <p id="section-2-5.6.1">
             This header parameter provides the ability to identify an X.509 certificate by a hash value (a thumbprint).
-            The 'x5t' header parameter can be represented as an array of two elements.
+            The 'x5t' header parameter is represented as an array of two elements.
             The first element is an algorithm identifier which is an integer or a string containing the hash algorithm identifier corresponding to either the Value (integer) or Name (string) column of the algorithm registered in the "COSE Algorithms" registry.
             The second element is a binary string containing the hash value computed over the DER encoded certificate.<a href="#section-2-5.6.1" class="pilcrow">¶</a></p>
 <p id="section-2-5.6.2">
@@ -1288,7 +1288,7 @@ COSE_CertHash = [ hashAlg: (int / tstr), hashValue: bstr ]
         These checks can include validating that points are on curves for elliptical curve algorithms, and that sizes of RSA keys are of an acceptable size.
         The use of unvalidated keys can lead either to loss of security or excessive consumption of resources (for example using a 200K RSA key).<a href="#section-5-3" class="pilcrow">¶</a></p>
 <p id="section-5-4">
-        When processing x5u header parameter the security considerations of <span>[<a href="#RFC3986" class="xref">RFC3986</a>]</span> and specifically those defined in Section <a href="https://rfc-editor.org/rfc/rfc3986#section-7.1" class="relref">7.1</a> also apply.<a href="#section-5-4" class="pilcrow">¶</a></p>
+        When processing the x5u header parameter the security considerations of <span>[<a href="#RFC3986" class="xref">RFC3986</a>]</span> and specifically those defined in Section <a href="https://rfc-editor.org/rfc/rfc3986#section-7.1" class="relref">7.1</a> also apply.<a href="#section-5-4" class="pilcrow">¶</a></p>
 <p id="section-5-5">
         Regardless of the source, certification path validation is an important part of establishing trust in a certificate. <span><a href="https://rfc-editor.org/rfc/rfc5280#section-6" class="relref">Section 6</a> of [<a href="#RFC5280" class="xref">RFC5280</a>]</span> provides guidence for the path validation. The security considerations of <span>[<a href="#RFC5280" class="xref">RFC5280</a>]</span> are also important for the correct usage of this document.<a href="#section-5-5" class="pilcrow">¶</a></p>
 <p id="section-5-6">
