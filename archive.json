@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-10-10T17:01:03.156297+00:00",
+  "timestamp": "2021-10-12T14:45:05.185794+00:00",
   "repo": "cose-wg/X509",
   "labels": [
     {
@@ -47,6 +47,11 @@
       "name": "x509",
       "description": "",
       "color": "7C03D2"
+    },
+    {
+      "name": "has-pr",
+      "description": "",
+      "color": "CBA68E"
     }
   ],
   "issues": [
@@ -145,10 +150,12 @@
       "author": "fpalombini",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "x509"
+      ],
       "body": "About x5t:\r\n\r\n> The first element is an algorithm identifier which is\r\n>       an integer or a string containing the hash algorithm identifier.\r\n\r\nShould this be taken from the COSE Algorithm registry? if not necessarily, what value can it take?",
       "createdAt": "2019-08-14T07:55:11Z",
-      "updatedAt": "2020-03-19T09:12:18Z",
+      "updatedAt": "2021-10-10T20:30:26Z",
       "closedAt": null,
       "comments": [
         {
@@ -342,10 +349,12 @@
       "author": "laurencelundblade",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "x509"
+      ],
       "body": "Particularly with x5bag, the signature verifier needs to figure out which cert is the leaf to use to verify the COSE signature.  CMS and such did with the Subject Key ID and it seems that should be a described option here.\r\n",
       "createdAt": "2020-03-18T19:15:53Z",
-      "updatedAt": "2020-03-22T21:49:56Z",
+      "updatedAt": "2021-10-10T20:30:26Z",
       "closedAt": null,
       "comments": [
         {
@@ -425,10 +434,12 @@
       "author": "laurencelundblade",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "x509"
+      ],
       "body": "JWS has almost the same header parameters at COSE (x5t, x5chain and x5u, but not x5bag). The semantics of them should be identical, unless there's a really good reason not to be. (EAT using JWT and CWT as semantically equivalent so issues like this pop up)\r\n\r\nCOSE X.509 is not very clear about determination of the end-entity cert. JWS is clear and explicit:\r\n  - x5t always refers to an end-entity\r\n  - In x5u the first cert is always the end-entity\r\n  - In x5c the first cert is always the end-entity\r\n\r\nJWS uses the phrase \"The certificate containing the public key corresponding to the key used to digitally sign\u201d rather than \"end-entity\u201d. I prefer end-entity, but either is fine.\r\n\r\nBy contrast, COSE X.509 only explicitly says how the end-entity is determined for an x5chain. Nothing is said for x5t, x5bag or x5u.\r\n\r\nSeems to me that COSE X.509 should be made identical to JWS for x5t, x5chain and x5u. \r\n\r\nThen COSE has the add-on bonus of x5bag. x5bag never determines the end-entity since it is un ordered. You have to have an x5t, kid or some other means of knowing which in the x5bag is the end-entity. And it is OK that x5bag doesn\u2019t even contain the end-entity.\r\n",
       "createdAt": "2020-12-18T19:55:08Z",
-      "updatedAt": "2021-01-21T21:04:28Z",
+      "updatedAt": "2021-10-10T20:30:26Z",
       "closedAt": null,
       "comments": [
         {
@@ -440,7 +451,7 @@
         },
         {
           "author": "kaduk",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "The COSE x5u requires application/pkix-cert or application/pkcs7-mime; pkix-cert is a single (DER) cert and cannot hold a chain, and pkcs7-mime is a well-defined and structured media type that we should not try to impose additional constraints on.  (JWS wants PEM form and allows chains or single certs.)\r\n\r\nI think the only potentially actionable thing here would be to add explicit text that x5t points to the end-entity.  I'm not opposed, but it seems that Jim thought this was self-evident, per https://github.com/cose-wg/X509/issues/23#issuecomment-602278913 .",
           "createdAt": "2021-01-21T06:58:51Z",
           "updatedAt": "2021-01-21T06:58:51Z"
@@ -454,14 +465,14 @@
         },
         {
           "author": "kaduk",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "(Yes, pkcs7-mime can carry several certificates.  I don't know its structure by heart, either, though.)\r\nI agree that we are already clear for x5chain.",
           "createdAt": "2021-01-21T09:10:03Z",
           "updatedAt": "2021-01-21T09:10:03Z"
         },
         {
           "author": "mcr",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Many of us what to avoid pkcs7 in future IoT things.  We don't have code for it, and don't really want include it.\r\nThat's why we have x5bag/x5chain being an array of pkix-cert.",
           "createdAt": "2021-01-21T14:13:09Z",
           "updatedAt": "2021-01-21T14:13:09Z"
@@ -491,10 +502,12 @@
       "author": "laurencelundblade",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "x509"
+      ],
       "body": "JWS has almost the same header parameters at COSE (x5t, x5chain and x5u, but not x5bag). The semantics of them should be identical, unless there's a really good reason not to be. (EAT using JWT and CWT as semantically equivalent so issues like this pop up)\r\n\r\nJWS section 6 has clear text saying when header parameters need to be protected and when they don't.  It applies to all the parameters that could be used to identify a certificate including the kid.\r\n\r\nAll the same attacks and defenses apply for COSE X.509, so COSE X.509 should have a section with text that is almost identical to JWS section 6.",
       "createdAt": "2020-12-18T20:00:38Z",
-      "updatedAt": "2021-01-02T15:07:08Z",
+      "updatedAt": "2021-10-10T20:30:27Z",
       "closedAt": null,
       "comments": [
         {
@@ -506,7 +519,7 @@
         },
         {
           "author": "mcr",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Jonathan Hammell <notifications@github.com> wrote:\n    > I do not find JWS Section 6 to be clear regarding when header\n    > parameters need to be protected and when they don't.\n\n    >> These Header Parameters MUST\n    >> be integrity protected if the information that they convey is to be\n    >> utilized in a trust decision; however, if the only information used\n    >> in the trust decision is a key, these parameters need not be\n    >> integrity protected, since changing them in a way that causes a\n    >> different key to be used will cause the validation to fail.\n\n    > I think that all certificate fields are \"utilized in a trust decision\",\n    > but I do not believe the intention in JWS was that the x5* headers\n    > should always be protected headers, otherwise it would have said\n    > that. The certificate fields are integrity protected by the digital\n    > signature on the certificate itself and the COSE X.509 I-D says that\n    > \"Certificates obtained from any of these methods MUST still be\n    > validated\" by PKIX or other trust structure.\n\nHi, the JOSE JSON Serialization version of RFC7515 allows for protected and\nunprotected headers.\nThe JWS Compact Serialization has no allowance for unprotected headers.\nWhat does this mean compared to COSE.\n\n    > I suspect that the intention in the JWS text was to indicate that they\n    > must be protected headers if you are not relying on PKIX path\n    > validation to a local trusted root; that is, if you are using the\n    > Subject field, rfc822name or other certificate field to tell you who\n    > signed the message, without a trusted issuer.\n\nNo, having read 7515 several times yesterday, I didn't find any such text.\n\n",
           "createdAt": "2020-12-23T20:01:10Z",
           "updatedAt": "2020-12-23T20:01:10Z"
@@ -527,7 +540,7 @@
         },
         {
           "author": "mcr",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "Laurence Lundblade <notifications@github.com> wrote:\n    > 7515 section 6 doesn't say that header parameters must always be\n    > protected. I agree with that. I don't think the headers parameters\n    > should always be protected.\n\n    > The attacks at issue are possible even when path validation was\n    > performed and succeeded. The protection of the headers is never an\n    > alternate to path validation.\n\nI think that this is the take home: certificates (or other identity claims)\ncan show up in any place, and being in the protected bucket provides no additional credences.\n\n    > If some second certificate with the same key happens to exist and the\n    > fields in it are somehow favorable for an attack, there is opportunity\n    > to reference it if the header is not protected. It's about securely\n    > binding all the data used in the trust decision by the RP to the\n    > message.\n\nyeah, but if such a thing existed, then all the security is moot.\n\n    > All that said, consistency with 7515 is equally important. If someone\n    > has a use case they implement with 7515, they should be able to\n    > implement it here too.\n\n    > If we say here that some headers can never be protected then we a) have\n    > inconsistency with 7515, b) preclude defense against discussed attacks\n    > c) preclude defenses against attacks we haven't thought of yet.\n\nThe major use of 7515 is the JSON Compact Serialization, JWT, which does not\neven have an unprotected bucket.  So if one wanted to be consistent with\nthat, then it all goes in the protected bucket, because there is no other\nplace.\n\n",
           "createdAt": "2020-12-27T22:45:13Z",
           "updatedAt": "2020-12-27T22:45:13Z"
@@ -564,10 +577,13 @@
       "author": "laurencelundblade",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "x509",
+        "has-pr"
+      ],
       "body": "The x5u text refers to a \"trust relationship\" between the signer and the host of the URI. What is that relationship? Since trust relationships are of critical importance in what we're doing here, I would expect it to be spelled out. \r\n\r\nIt seems like there's two roots of trust involved here. One for the chain that is used to verify the COSE and the other that is used to verify the TLS connection.\r\n\r\nI think the following sentence refers to the root of trust for the TLS connection, but can be confused with the root of trust for the COSE chain.\r\n\r\n> If the retrieved certificate does not\r\n      chain to an existing trust anchor, the certificate MUST NOT be\r\n      trusted unless the server is configured as trusted to provide new\r\n      trust anchors or if an out-of-band confirmation can be received\r\n      for trusting the retrieved certificate.\r\n\r\nAlso, maybe there should be a protected header that names the root of trust for the TLS connection? If there isn't the signer can't quite control the trust relationship as they don't know what roots the receiver has been configured with.\r\n\r\nI also think it is important to point out that the certs received this way must still be validated against the root used by the COSE chain. This is not the fetching of already-validate certificates.\r\n\r\nJWS seems to have similar issues.\r\n\r\n",
       "createdAt": "2020-12-18T20:23:26Z",
-      "updatedAt": "2021-02-08T21:00:00Z",
+      "updatedAt": "2021-10-12T13:46:03Z",
       "closedAt": null,
       "comments": [
         {
@@ -579,7 +595,7 @@
         },
         {
           "author": "mcr",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "I agree with you.  x5u is just a way to do x5* out of band.\r\nIf HTTPS is used, it is for privacy, and provides no additional trust.",
           "createdAt": "2021-01-21T14:24:00Z",
           "updatedAt": "2021-01-21T14:24:00Z"
@@ -602,10 +618,13 @@
       "author": "emanjon",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "x509",
+        "has-pr"
+      ],
       "body": "The current text states:\r\n\r\n      The URI provided MUST provide integrity protection and server\r\n      authentication.  For example, an HTTP or CoAP GET request to\r\n      retrieve a certificate MUST use TLS [RFC8446] or DTLS\r\n      [I-D.ietf-tls-dtls13].\r\n\r\nIf integrity is really needed here which I don't understand I suggest:\r\n\r\n      The URI provided MUST provide integrity protection and server\r\n      authentication.  For example, an HTTP or CoAP GET request to\r\n      retrieve a certificate MAY use TLS [RFC8446], DTLS\r\n      [I-D.ietf-tls-dtls13] or OSCORE [RFC8613].\r\n\r\n",
       "createdAt": "2021-01-21T10:11:06Z",
-      "updatedAt": "2021-01-21T10:11:06Z",
+      "updatedAt": "2021-10-12T13:42:54Z",
       "closedAt": null,
       "comments": []
     },
@@ -618,15 +637,18 @@
       "author": "laurencelundblade",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "wontfix",
+        "x509"
+      ],
       "body": "x5bag and x5chain can be an array or bstr or just a bstr when a single cert. I would prefer to just allow the array and eliminate bstr-single-cert option.\r\n\r\nI did a rough encoding/decoding implementation in C of x5bag and x5chain. With bstr-single-cert object code is 210 + 110 = 320 bytes. Without it, object code is 70+130 = 200. So this adds 50% object code.\r\n\r\nThe API I picked just returns an array of certs whether there is one or more than one. I don't see any advantage to a special API for a single cert.\r\n\r\nAs far as I can tell the main advantage of this design is that it saves one byte on the wire when there is a single cert. Is there some other advantage? It doesn't seem worth the complexity to save one byte especially when certs are typically a few hundred bytes.",
       "createdAt": "2021-03-13T20:53:54Z",
-      "updatedAt": "2021-07-28T23:49:22Z",
+      "updatedAt": "2021-10-10T20:30:27Z",
       "closedAt": null,
       "comments": [
         {
           "author": "kaduk",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "body": "I'm fairly reluctant to remove functionality at this stage in the document lifecycle (formally, the draft is \"approved by the IESG pending edits\", and those edits are not supposed to be introducing gratuitous changes).\r\nIf we really want to it's not impossible, but might require redoing various last call processes.",
           "createdAt": "2021-03-13T21:09:43Z",
           "updatedAt": "2021-03-13T21:09:43Z"
@@ -670,10 +692,12 @@
       "author": "emanjon",
       "authorAssociation": "NONE",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "x509"
+      ],
       "body": "John:\r\n\r\nWhen we discussed this at the meeting is was agreed to change application/cbor to something more specific. The PR now use \"application/cose-x509-chain\". And has the text \"When the application/cose-x509-chain media type is used, the data is a COSE_X509 structure containing a chain.\"\r\n\r\nI just noticed that an IANA section registering the media type is missing. I will add that to the PR. But before I do that:\r\n\r\n- Is application/cose-x509-chain the right thing?\r\n- Or should it be application/cose-x509 allowing for both bag and chain?\r\n- Or should there be two media types application/cose-x509-chain and application/cose-x509-bag?\r\n\r\nx5bag and x5chain separates bag and chain, while x5u could be either. Knowing that it is a chain simplifies processing, but removes the option to transfer additional certificates.\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
       "createdAt": "2021-06-23T14:03:50Z",
-      "updatedAt": "2021-06-23T14:04:17Z",
+      "updatedAt": "2021-10-10T20:22:19Z",
       "closedAt": null,
       "comments": [
         {
@@ -1210,24 +1234,26 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NTU4OTE5Mzcx",
       "title": "fix a few nits",
       "url": "https://github.com/cose-wg/X509/pull/32",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "kaduk",
-      "authorAssociation": "FIRST_TIME_CONTRIBUTOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2021-01-21T06:59:34Z",
-      "updatedAt": "2021-01-21T06:59:34Z",
+      "updatedAt": "2021-10-10T20:14:19Z",
       "baseRepository": "cose-wg/X509",
       "baseRefName": "master",
       "baseRefOid": "4ed52bf1063f8a89a58c6b9d6453df3ea76459b9",
       "headRepository": "kaduk/X509",
       "headRefName": "nits",
       "headRefOid": "88c3b45d1ebb96b36ce82a77766e7ae69002bf6e",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2021-10-10T20:14:19Z",
+      "mergedAt": "2021-10-10T20:14:19Z",
+      "mergedBy": "ivajloip",
+      "mergeCommit": {
+        "oid": "7c632dbdc5b8c6ba099c315f9382fe141eee2561"
+      },
       "comments": [],
       "reviews": []
     },
@@ -1236,24 +1262,26 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NTYyODgwNjQw",
       "title": "recommend referring directly to constrained BRSKI, ",
       "url": "https://github.com/cose-wg/X509/pull/34",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mcr",
-      "authorAssociation": "FIRST_TIME_CONTRIBUTOR",
+      "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "as enrollment-roadmap is never gonna get published, and indirection not worth it",
       "createdAt": "2021-01-28T00:06:06Z",
-      "updatedAt": "2021-01-28T13:34:45Z",
+      "updatedAt": "2021-10-10T20:16:36Z",
       "baseRepository": "cose-wg/X509",
       "baseRefName": "master",
       "baseRefOid": "4ed52bf1063f8a89a58c6b9d6453df3ea76459b9",
       "headRepository": "mcr/X509",
       "headRefName": "idevid-brski-pointer",
       "headRefOid": "0d6f733a3d93a94dbe846dcc4267655da26fa9e7",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2021-10-10T20:16:36Z",
+      "mergedAt": "2021-10-10T20:16:36Z",
+      "mergedBy": "ivajloip",
+      "mergeCommit": {
+        "oid": "44f8f06680feb0e4b743124bebc4620bcd322dc2"
+      },
       "comments": [],
       "reviews": []
     },
@@ -1269,7 +1297,7 @@
       "labels": [],
       "body": "\u20269 #30 #31 #33\r\n\r\nThe PR aims to aims to address issues #29 #30 #31 #33 based on the dicussion on the list and during the last interim. The solution is to use x5t together with the other parameters as suggested by Russ:\r\n\r\n- Added to x5bag, x5chain, and x5u that integrity protection in COSE is requiured unless it is known that the CA did proof-of-possession.\r\n- Added that integrity protection can be achieved by combining x5t with x5bag, x5chain, or x5u.  \r\n- Added explanation that sending x5bag or x5cahing in unprotected allows an intermediary to remove or add certificates.\r\n- Added clarification that x5t refer to an end-entity certificate.\r\n- Added media type application/cbor for a COSE_X509 chain.\r\n- Added that when the end-entity certificate is intergrity protected by COSE, URI protection is not needed.\r\n- Security consideration on why integrity protection of the end-entity certificate is required is there was no proof-of-possession.\r\n- Security consideration on identity protection.\r\n\r\nI think this addresses all the related use case and security issues.\r\n - If the requirement are followed, it is secure.\r\n - No changes required to existing secure deployments.\r\n - It is still possible to send x5bag and x5chain in uprotected.\r\n - No extra overhead is required when used in EDHOC.\r\n - When used in EDHOC, plain unprotected CoAP can be used.\r\n\r\nI tried to make the changnes so that no existing secure deployment need to change their implementation. Could otherwise discussed if integrity protection should be a MUST, but that would change existing implementaions (which is they do proof-of-possession are already secure).",
       "createdAt": "2021-02-24T09:32:58Z",
-      "updatedAt": "2021-05-13T10:31:47Z",
+      "updatedAt": "2021-10-12T14:03:47Z",
       "baseRepository": "cose-wg/X509",
       "baseRefName": "master",
       "baseRefOid": "4ed52bf1063f8a89a58c6b9d6453df3ea76459b9",
@@ -1348,7 +1376,7 @@
             "abbreviatedOid": "966389c"
           },
           "author": "mcr",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2021-03-12T21:30:28Z",
@@ -1388,7 +1416,7 @@
             "abbreviatedOid": "35e8686"
           },
           "author": "kaduk",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2021-03-18T04:18:08Z",
@@ -1408,7 +1436,7 @@
             "abbreviatedOid": "966389c"
           },
           "author": "kaduk",
-          "authorAssociation": "NONE",
+          "authorAssociation": "CONTRIBUTOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2021-03-18T04:22:06Z",
@@ -1539,6 +1567,44 @@
               "body": "I would suggest keeping the text as is. Or do you want to open it up for integrity protection outside of COSE. That probably comes with additional problems on how to bind things to the COSE message.",
               "createdAt": "2021-05-13T10:31:46Z",
               "updatedAt": "2021-05-13T10:31:47Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDOBHEdPc4uTmDz",
+          "commit": {
+            "abbreviatedOid": "966389c"
+          },
+          "author": "ivajloip",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-10-12T05:02:27Z",
+          "updatedAt": "2021-10-12T14:03:47Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\n            As the contents of this header parameter are untrusted input, the header parameter can be in either the protected or unprotected header bucket. Please refer to <xref target=\"security-considerations\"/> for a discussion on the implications of sending this header parameter in unprotected header bucket.\r\n```",
+              "createdAt": "2021-10-12T05:02:27Z",
+              "updatedAt": "2021-10-12T14:03:47Z"
+            },
+            {
+              "originalPosition": 24,
+              "body": "```suggestion\r\n            As the contents of this header parameter are untrusted input, the header parameter can be in either the protected or unprotected header bucket. Please refer to <xref target=\"security-considerations\"/> for a discussion on the implications of sending this header parameter in unprotected header bucket.\r\n```",
+              "createdAt": "2021-10-12T05:04:26Z",
+              "updatedAt": "2021-10-12T14:03:47Z"
+            },
+            {
+              "originalPosition": 27,
+              "body": "I am trying to make this simpler to read and request the same things. Also must (as opposed to MUST) appears to me more appropriate for an example.\r\n\r\n```suggestion\r\n            If a retrieved certificate does not chain to an existing trust anchor, the certificate MUST NOT be trusted unless the provided URI is integrity protected, the communication with the server is integrity protected, the server is authentication, and the server is configured as trusted to provide new trust anchors or if an out-of-band confirmation can be received for trusting the retrieved certificate. For example, an HTTP or CoAP GET request to retrieve a certificate must use TLS <xref target=\"RFC8446\"/> or DTLS <xref target=\"I-D.ietf-tls-dtls13\"/>.\r\n```",
+              "createdAt": "2021-10-12T05:27:19Z",
+              "updatedAt": "2021-10-12T14:03:47Z"
+            },
+            {
+              "originalPosition": 82,
+              "body": "```suggestion\r\nProtecting the integrity of the x5bag, x5chain and x5t contents by placing them in the protected header bucket MAY mitigate some risks of a misbehaving certificate authority (c.f. Section 5.1 of [RFC2634]).\r\n```",
+              "createdAt": "2021-10-12T13:58:59Z",
+              "updatedAt": "2021-10-12T14:03:47Z"
             }
           ]
         }
