@@ -922,8 +922,8 @@ address div.right {
 <nav class="toc"><ul class="ulEmpty compact toc ulBare">
 <li class="ulEmpty compact toc ulBare" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
-<ul class="ulEmpty toc ulBare compact">
-<li class="ulEmpty toc ulBare compact" id="section-toc.1-1.1.2.1">
+<ul class="toc ulEmpty compact ulBare">
+<li class="toc ulEmpty compact ulBare" id="section-toc.1-1.1.2.1">
                 <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="xref">1.1</a>.  <a href="#name-requirements-terminology" class="xref">Requirements Terminology</a></p>
 </li>
             </ul>
@@ -936,11 +936,11 @@ address div.right {
 </li>
           <li class="ulEmpty compact toc ulBare" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
-<ul class="ulEmpty toc ulBare compact">
-<li class="ulEmpty toc ulBare compact" id="section-toc.1-1.4.2.1">
+<ul class="toc ulEmpty compact ulBare">
+<li class="toc ulEmpty compact ulBare" id="section-toc.1-1.4.2.1">
                 <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-cose-header-parameter-regis" class="xref">COSE Header Parameter Registry</a></p>
 </li>
-              <li class="ulEmpty toc ulBare compact" id="section-toc.1-1.4.2.2">
+              <li class="toc ulEmpty compact ulBare" id="section-toc.1-1.4.2.2">
                 <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-cose-header-algorithm-param" class="xref">COSE Header Algorithm Parameter Registry</a></p>
 </li>
             </ul>
@@ -950,11 +950,11 @@ address div.right {
 </li>
           <li class="ulEmpty compact toc ulBare" id="section-toc.1-1.6">
             <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-references" class="xref">References</a></p>
-<ul class="ulEmpty toc ulBare compact">
-<li class="ulEmpty toc ulBare compact" id="section-toc.1-1.6.2.1">
+<ul class="toc ulEmpty compact ulBare">
+<li class="toc ulEmpty compact ulBare" id="section-toc.1-1.6.2.1">
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="xref">6.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
 </li>
-              <li class="ulEmpty toc ulBare compact" id="section-toc.1-1.6.2.2">
+              <li class="toc ulEmpty compact ulBare" id="section-toc.1-1.6.2.2">
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="xref">6.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
 </li>
             </ul>
@@ -977,7 +977,7 @@ address div.right {
         This document defines a set of attributes that will allow applications to transport and refer to X.509 certificates in a consistent manner.<a href="#section-1-1" class="pilcrow">¶</a></p>
 <p id="section-1-2">
         
- In some of these cases, a constrained device is being deployed in the context of an existing X.509 PKI: for example, in the 6TiSCH environment, <span>[<a href="#I-D.richardson-enrollment-roadmap" class="xref">I-D.richardson-enrollment-roadmap</a>]</span> describes a device enrollment solution that relies on the presence of a factory-installed certificate on the device.
+ In some of these cases, a constrained device is being deployed in the context of an existing X.509 PKI: for example, <span>[<a href="#I-D.ietf-anima-constrained-voucher" class="xref">I-D.ietf-anima-constrained-voucher</a>]</span> describes a device enrollment solution that relies on the presence of a factory-installed certificate on the device.
  The <span>[<a href="#I-D.ietf-lake-edhoc" class="xref">I-D.ietf-lake-edhoc</a>]</span> draft was also written with the idea that long term certificates could be used to provide for authentication of devices, and uses them to establish session keys.
  Another possible scenario is the use of COSE as the basis for a secure messaging application.
         This scenario assumes the presence of long term keys and a central authentication authority.
@@ -1068,8 +1068,8 @@ obtained from any of these methods still need to validate it.
         <dd style="margin-left: 1.5em" id="section-2-5.6">
           <p id="section-2-5.6.1">
             This header parameter provides the ability to identify an X.509 certificate by a hash value (a thumbprint).
-            The 'x5t' header parameter can be represented as an array of two elements.
-            The first element is an algorithm identifier which is an integer or a string containing the hash algorithm identifier corresponding to either the Value (integer) or Name (string) column of the algorithm registered in the "COSE Algorithms" registry <span><a href="https://www.iana.org/assignments/cose/cose.xhtml#algorithms">https://www.iana.org/assignments/cose/cose.xhtml#algorithms</a></span>.
+            The 'x5t' header parameter is represented as an array of two elements.
+            The first element is an algorithm identifier which is an integer or a string containing the hash algorithm identifier corresponding to either the Value (integer) or Name (string) column of the algorithm registered in the "COSE Algorithms" registry  <span><a href="https://www.iana.org/assignments/cose/cose.xhtml#algorithms">https://www.iana.org/assignments/cose/cose.xhtml#algorithms</a></span>.
             The second element is a binary string containing the hash value computed over the DER encoded certificate.<a href="#section-2-5.6.1" class="pilcrow">¶</a></p>
 <p id="section-2-5.6.2">
             As this header parameter does not provide any trust, the header parameter can be in either a protected or unprotected header bucket.<a href="#section-2-5.6.2" class="pilcrow">¶</a></p>
@@ -1288,7 +1288,7 @@ COSE_CertHash = [ hashAlg: (int / tstr), hashValue: bstr ]
         These checks can include validating that points are on curves for elliptical curve algorithms, and that sizes of RSA keys are of an acceptable size.
         The use of unvalidated keys can lead either to loss of security or excessive consumption of resources (for example using a 200K RSA key).<a href="#section-5-3" class="pilcrow">¶</a></p>
 <p id="section-5-4">
-        When processing x5u header parameter the security considerations of <span>[<a href="#RFC3986" class="xref">RFC3986</a>]</span> and specifically those defined in Section <a href="https://rfc-editor.org/rfc/rfc3986#section-7.1" class="relref">7.1</a> also apply.<a href="#section-5-4" class="pilcrow">¶</a></p>
+        When processing the x5u header parameter the security considerations of <span>[<a href="#RFC3986" class="xref">RFC3986</a>]</span> and specifically those defined in Section <a href="https://rfc-editor.org/rfc/rfc3986#section-7.1" class="relref">7.1</a> also apply.<a href="#section-5-4" class="pilcrow">¶</a></p>
 <p id="section-5-5">
         Regardless of the source, certification path validation is an important part of establishing trust in a certificate. <span><a href="https://rfc-editor.org/rfc/rfc5280#section-6" class="relref">Section 6</a> of [<a href="#RFC5280" class="xref">RFC5280</a>]</span> provides guidence for the path validation. The security considerations of <span>[<a href="#RFC5280" class="xref">RFC5280</a>]</span> are also important for the correct usage of this document.<a href="#section-5-5" class="pilcrow">¶</a></p>
 <p id="section-5-6">
@@ -1356,9 +1356,9 @@ COSE_CertHash = [ hashAlg: (int / tstr), hashValue: bstr ]
         <dd>
 <span class="refAuthor">Berners-Lee, T.</span>, <span class="refAuthor">Fielding, R.</span>, and <span class="refAuthor">L. Masinter</span>, <span class="refTitle">"Uniform Resource Identifier (URI): Generic Syntax"</span>, <span class="seriesInfo">STD 66</span>, <span class="seriesInfo">RFC 3986</span>, <span class="seriesInfo">DOI 10.17487/RFC3986</span>, <time datetime="2005-01" class="refDate">January 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc3986">https://www.rfc-editor.org/info/rfc3986</a>&gt;</span>. </dd>
 <dd class="break"></dd>
-<dt id="I-D.richardson-enrollment-roadmap">[I-D.richardson-enrollment-roadmap]</dt>
+<dt id="I-D.ietf-anima-constrained-voucher">[I-D.ietf-anima-constrained-voucher]</dt>
       <dd>
-<span class="refAuthor">Richardson, M.</span>, <span class="refTitle">"Device Enrollment in IETF protocols -- A Roadmap"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-richardson-enrollment-roadmap-03</span>, <time datetime="2020-10-07" class="refDate">7 October 2020</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-richardson-enrollment-roadmap-03">https://datatracker.ietf.org/doc/html/draft-richardson-enrollment-roadmap-03</a>&gt;</span>. </dd>
+<span class="refAuthor">Richardson, M.</span>, <span class="refAuthor">Stok, P. V. D.</span>, <span class="refAuthor">Kampanakis, P.</span>, and <span class="refAuthor">E. Dijk</span>, <span class="refTitle">"Constrained Voucher Artifacts for Bootstrapping Protocols"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-anima-constrained-voucher-13</span>, <time datetime="2021-07-25" class="refDate">25 July 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-anima-constrained-voucher-13">https://datatracker.ietf.org/doc/html/draft-ietf-anima-constrained-voucher-13</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
