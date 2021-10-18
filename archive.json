@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-10-12T14:45:05.185794+00:00",
+  "timestamp": "2021-10-18T06:11:32.546496+00:00",
   "repo": "cose-wg/X509",
   "labels": [
     {
@@ -146,7 +146,7 @@
       "id": "MDU6SXNzdWU0ODA1MzQyMDU=",
       "title": "Clarification needed",
       "url": "https://github.com/cose-wg/X509/issues/13",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "fpalombini",
       "authorAssociation": "NONE",
       "assignees": [],
@@ -155,8 +155,8 @@
       ],
       "body": "About x5t:\r\n\r\n> The first element is an algorithm identifier which is\r\n>       an integer or a string containing the hash algorithm identifier.\r\n\r\nShould this be taken from the COSE Algorithm registry? if not necessarily, what value can it take?",
       "createdAt": "2019-08-14T07:55:11Z",
-      "updatedAt": "2021-10-10T20:30:26Z",
-      "closedAt": null,
+      "updatedAt": "2021-10-12T17:12:52Z",
+      "closedAt": "2021-10-12T17:12:52Z",
       "comments": [
         {
           "author": "laurencelundblade",
@@ -1609,6 +1609,34 @@
           ]
         }
       ]
+    },
+    {
+      "number": 40,
+      "id": "PR_kwDOBHEdPc4tE8gh",
+      "title": "Fix #13 - add link to iana registry",
+      "url": "https://github.com/cose-wg/X509/pull/40",
+      "state": "MERGED",
+      "author": "ivajloip",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2021-10-12T14:51:02Z",
+      "updatedAt": "2021-10-12T18:13:38Z",
+      "baseRepository": "cose-wg/X509",
+      "baseRefName": "master",
+      "baseRefOid": "44f8f06680feb0e4b743124bebc4620bcd322dc2",
+      "headRepository": "cose-wg/X509",
+      "headRefName": "add-link-to-iana-registry",
+      "headRefOid": "50f251524651edc7c7c06642d409d445e92ac1e1",
+      "closedAt": "2021-10-12T17:12:51Z",
+      "mergedAt": "2021-10-12T17:12:51Z",
+      "mergedBy": "ivajloip",
+      "mergeCommit": {
+        "oid": "0a90ac007c5bd55b333bfd46ff781688e762e4e4"
+      },
+      "comments": [],
+      "reviews": []
     }
   ]
 }
